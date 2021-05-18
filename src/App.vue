@@ -1,14 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <default-dialogs ref="defaultDialogs"></default-dialogs>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import DefaultDialogs from "@/components/dialog/DefaultDialogs.vue";
 
@@ -17,27 +13,23 @@ import DefaultDialogs from "@/components/dialog/DefaultDialogs.vue";
     DefaultDialogs,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  public mounted() {
+    if (!Object.prototype.hasOwnProperty.call(Vue.prototype, "$dialog")) {
+      Vue.prototype.$dialog = this.$refs.defaultDialogs;
+    }
+
+    if (!Object.prototype.hasOwnProperty.call(Vue.prototype, "$snackbar")) {
+      Vue.prototype.$snackbar = this.$refs.defaultSnackbar;
+    }
+
+    this.$confirm("타이틀", "테스트");
+  }
+}
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $dialog: typeof DefaultDialogs;
+  }
+}
 </script>
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
