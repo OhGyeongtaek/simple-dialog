@@ -19,10 +19,6 @@ export default class App extends Vue {
       Vue.prototype.$dialog = this.$refs.defaultDialogs;
     }
 
-    if (!Object.prototype.hasOwnProperty.call(Vue.prototype, "$snackbar")) {
-      Vue.prototype.$snackbar = this.$refs.defaultSnackbar;
-    }
-
     this.$confirm("타이틀", "테스트");
   }
 }
