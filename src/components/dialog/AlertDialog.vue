@@ -43,8 +43,6 @@ export default class AlertDialog extends Vue {
     this.visible = false;
 
     this.callback?.();
-
-    return null;
   }
 
   private title = "알림";
@@ -56,9 +54,8 @@ export default class AlertDialog extends Vue {
   public show(title: string, message: string, callback?: AlertCallback) {
     this.title = title;
     this.message = message;
-    this.visible = true;
-
     this.callback = callback;
+    this.visible = true;
   }
 }
 </script>

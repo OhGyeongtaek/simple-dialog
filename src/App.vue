@@ -19,7 +19,7 @@ export default class App extends Vue {
       Vue.prototype.$dialog = this.$refs.defaultDialogs;
     }
 
-    this.$confirm("타이틀", "테스트");
+    this.$alert("TITLE", "CONTENT");
   }
 }
 

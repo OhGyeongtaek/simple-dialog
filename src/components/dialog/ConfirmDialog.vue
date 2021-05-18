@@ -51,10 +51,7 @@ export default class ConfirmDialog extends Vue {
   @Emit()
   private confirm(result: boolean) {
     this.visible = false;
-
     this.callback?.(result);
-
-    return result;
   }
 
   private visible = false;
@@ -67,7 +64,6 @@ export default class ConfirmDialog extends Vue {
     this.title = title;
     this.message = message;
     this.callback = callback;
-
     this.visible = true;
   }
 }

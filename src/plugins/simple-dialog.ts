@@ -8,7 +8,7 @@ interface AlertCallback {
   (): void;
 }
 
-export class SimpleAlert {
+export class SimpleDialog {
   public static alert(
     title?: string,
     message?: string,
@@ -34,45 +34,45 @@ export class SimpleAlert {
   }
 
   static install(Vue: typeof _Vue): void {
-    Vue.alert = SimpleAlert.alert;
-    Vue.confirm = SimpleAlert.confirm;
-    Vue.showProgress = SimpleAlert.showProgress;
-    Vue.hideProgress = SimpleAlert.hideProgress;
+    Vue.alert = SimpleDialog.alert;
+    Vue.confirm = SimpleDialog.confirm;
+    Vue.showProgress = SimpleDialog.showProgress;
+    Vue.hideProgress = SimpleDialog.hideProgress;
 
     const prototype = Vue.prototype;
 
     if (!Object.prototype.hasOwnProperty.call(prototype, "$alert")) {
-      prototype.$alert = SimpleAlert.alert;
+      prototype.$alert = SimpleDialog.alert;
     }
 
     if (!Object.prototype.hasOwnProperty.call(prototype, "$confirm")) {
-      prototype.$confirm = SimpleAlert.confirm;
+      prototype.$confirm = SimpleDialog.confirm;
     }
 
     if (!Object.prototype.hasOwnProperty.call(prototype, "$showProgress")) {
-      prototype.$showProgress = SimpleAlert.showProgress;
+      prototype.$showProgress = SimpleDialog.showProgress;
     }
 
     if (!Object.prototype.hasOwnProperty.call(prototype, "$hideProgress")) {
-      prototype.$hideProgress = SimpleAlert.hideProgress;
+      prototype.$hideProgress = SimpleDialog.hideProgress;
     }
   }
 }
 
 declare module "vue/types/vue" {
   interface Vue {
-    $alert: typeof SimpleAlert.alert;
-    $confirm: typeof SimpleAlert.confirm;
-    $showProgress: typeof SimpleAlert.showProgress;
-    $hideProgress: typeof SimpleAlert.hideProgress;
+    $alert: typeof SimpleDialog.alert;
+    $confirm: typeof SimpleDialog.confirm;
+    $showProgress: typeof SimpleDialog.showProgress;
+    $hideProgress: typeof SimpleDialog.hideProgress;
   }
 
   interface VueConstructor {
-    alert: typeof SimpleAlert.alert;
-    confirm: typeof SimpleAlert.confirm;
-    showProgress: typeof SimpleAlert.showProgress;
-    hideProgress: typeof SimpleAlert.hideProgress;
+    alert: typeof SimpleDialog.alert;
+    confirm: typeof SimpleDialog.confirm;
+    showProgress: typeof SimpleDialog.showProgress;
+    hideProgress: typeof SimpleDialog.hideProgress;
   }
 }
 
-_Vue.use(SimpleAlert);
+_Vue.use(SimpleDialog);

@@ -1,17 +1,9 @@
 <template>
-  <div>
-    <alert-dialog
-      ref="alert"
-      v-if="alertVisible"
-      @confirm="alertVisible = false"
-    ></alert-dialog>
-    <confirm-dialog
-      ref="confirm"
-      v-if="confirmVisible"
-      @confirm="confirmVisible = false"
-    ></confirm-dialog>
+  <v-app>
+    <alert-dialog ref="alert"></alert-dialog>
+    <confirm-dialog ref="confirm"></confirm-dialog>
     <progress-dialog v-if="progressVisible"></progress-dialog>
-  </div>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -28,17 +20,12 @@ import ProgressDialog from "./ProgressDialog.vue";
   },
 })
 export default class DefaultDialogs extends Vue {
-  protected alertVisible = false;
-  protected confirmVisible = false;
   protected progressVisible = false;
 
   public showAlert(title: string, message: string, callback?: AlertCallback) {
-    this.alertVisible = true;
-    this.$nextTick(() => {
-      const dialog = this.$refs.alert as AlertDialog;
+    const alert = this.$refs.alert as AlertDialog;
 
-      dialog.show(title, message, callback);
-    });
+    alert.show(title, message, callback);
   }
 
   public showConfirm(
@@ -46,11 +33,8 @@ export default class DefaultDialogs extends Vue {
     message: string,
     callback: ConfirmCallback
   ) {
-    this.confirmVisible = true;
-    this.$nextTick(() => {
-      const dialog: ConfirmDialog = this.$refs.confirm as ConfirmDialog;
-      dialog.show(title, message, callback);
-    });
+    const confirm = this.$refs.confirm as ConfirmDialog;
+    confirm.show(title, message, callback);
   }
 
   public showProgress() {
