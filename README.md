@@ -11,7 +11,7 @@ Vue에서 alert, confirm, progress와 같이 많이 이곳 저곳에서 많이 �
 
 > ## Alert 사용 예시
 
-```
+```javascript
 this.$alert("title", "message")
 ```
 
@@ -20,7 +20,7 @@ this.$alert("title", "message")
 
 > ## Confirm 사용 예시
 
-```
+```javascript
 this.$confirm("title", "message", (result: boolean) => {
     if (result === true) {
         console.log("Click confirm!!");
@@ -35,7 +35,7 @@ this.$confirm("title", "message", (result: boolean) => {
 
 > ## Progress 사용 예시
 
-```
+```javascript
 this.$showProgress();
 
 setTimeout(() => {
