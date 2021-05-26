@@ -1,3 +1,4 @@
+import { SnackbarConfigs } from "@/models/ComponentUI";
 import _Vue from "vue";
 
 interface ConfirmCallback {
@@ -9,6 +10,12 @@ interface AlertCallback {
 }
 
 export class SimpleDialog {
+  public static showSnack(msg: string, config?: SnackbarConfigs) {
+    return new Promise(() => {
+      _Vue.prototype.$dialog.showSnack(msg, config);
+    });
+  }
+
   public static alert(
     title?: string,
     message?: string,
@@ -41,6 +48,10 @@ export class SimpleDialog {
 
     const prototype = Vue.prototype;
 
+    if (!Object.prototype.hasOwnProperty.call(prototype, "$showSnack")) {
+      prototype.$showSnack = SimpleDialog.showSnack;
+    }
+
     if (!Object.prototype.hasOwnProperty.call(prototype, "$alert")) {
       prototype.$alert = SimpleDialog.alert;
     }
@@ -61,6 +72,7 @@ export class SimpleDialog {
 
 declare module "vue/types/vue" {
   interface Vue {
+    $showSnack: typeof SimpleDialog.showSnack;
     $alert: typeof SimpleDialog.alert;
     $confirm: typeof SimpleDialog.confirm;
     $showProgress: typeof SimpleDialog.showProgress;
@@ -68,6 +80,7 @@ declare module "vue/types/vue" {
   }
 
   interface VueConstructor {
+    showSnack: typeof SimpleDialog.showSnack;
     alert: typeof SimpleDialog.alert;
     confirm: typeof SimpleDialog.confirm;
     showProgress: typeof SimpleDialog.showProgress;

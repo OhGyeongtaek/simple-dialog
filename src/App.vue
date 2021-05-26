@@ -19,7 +19,10 @@ export default class App extends Vue {
       Vue.prototype.$dialog = this.$refs.defaultDialogs;
     }
 
-    this.$alert("TITLE", "CONTENT");
+    this.$showSnack("테스트", {
+      color: "error",
+      timeout: 3000,
+    });
   }
 }
 
