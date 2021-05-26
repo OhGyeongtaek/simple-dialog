@@ -48,7 +48,6 @@ export default class DefaultDialogs extends Vue {
 
   public showProgress() {
     this.progressVisible = true;
-    console.log(this.progressVisible);
   }
 
   public hideProgress() {
