@@ -1,4 +1,5 @@
 # Simple Dialog
+
 <center>
 
 [![Typescript](https://img.shields.io/badge/Typescript-blue.svg)](https://www.typescriptlang.org/)
@@ -12,26 +13,24 @@ Vue에서 alert, confirm, progress와 같이 많이 이곳 저곳에서 많이 �
 > ## Alert 사용 예시
 
 ```javascript
-this.$alert("title", "message")
+this.$alert("title", "message");
 ```
 
 ![alert](https://user-images.githubusercontent.com/20200820/118649392-6bad9600-b81e-11eb-81c4-96b319adc489.gif)
-    
 
 > ## Confirm 사용 예시
 
 ```javascript
 this.$confirm("title", "message", (result: boolean) => {
-    if (result === true) {
-        console.log("Click confirm!!");
-    } else {
-        console.log("Click cancel!!");
-    }
-})
+  if (result === true) {
+    console.log("Click confirm!!");
+  } else {
+    console.log("Click cancel!!");
+  }
+});
 ```
 
 ![confirm](https://user-images.githubusercontent.com/20200820/118649463-7cf6a280-b81e-11eb-8318-a5817924c823.gif)
-
 
 > ## Progress 사용 예시
 
@@ -39,11 +38,17 @@ this.$confirm("title", "message", (result: boolean) => {
 this.$showProgress();
 
 setTimeout(() => {
-    this.$hideProgress();
-}, 3000)
+  this.$hideProgress();
+}, 3000);
 ```
 
 ![progress](https://user-images.githubusercontent.com/20200820/118649440-78ca8500-b81e-11eb-9e76-f88e17186809.gif)
+
+> ## SnackBar 사용 예시
+
+```javascript
+this.$showSnack("테스트입니다.");
+```
 
 > ## 참고 코드
 
