@@ -58,6 +58,12 @@ setTimeout(() => {
 
 ![progress](https://user-images.githubusercontent.com/20200820/118649440-78ca8500-b81e-11eb-9e76-f88e17186809.gif)
 
+> ## SnackBar 사용 예시
+
+```javascript
+this.$showSnack("테스트입니다.");
+```
+
 > ## 참고 코드
 
 https://github.com/constkhi/vue-simple-alert
