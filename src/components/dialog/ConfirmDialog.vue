@@ -2,7 +2,7 @@
   <v-dialog persistent v-model="visible" max-width="480">
     <v-card>
       <v-card-title class="headline primary white--text" primary-title>
-        {{ title }}
+        {{ configs.title }}
       </v-card-title>
       <v-card-text>
         <slot name="body">
@@ -40,11 +40,8 @@
 </template>
 
 <script lang="ts">
+import { ConfirmCallback, DialogConfigs } from "@/models/ComponentUI";
 import { Vue, Component, Emit } from "vue-property-decorator";
-
-export interface ConfirmCallback {
-  (result: boolean): void;
-}
 
 @Component
 export default class ConfirmDialog extends Vue {
@@ -56,12 +53,16 @@ export default class ConfirmDialog extends Vue {
 
   private visible = false;
 
-  private title = "알림";
+  private configs = { title: "알림" };
   private message = "메시지";
   private callback!: ConfirmCallback | undefined;
 
-  public show(title: string, message: string, callback: ConfirmCallback) {
-    this.title = title;
+  public show(
+    message: string,
+    configs?: DialogConfigs,
+    callback?: ConfirmCallback
+  ) {
+    this.configs = { ...this.configs, ...configs };
     this.message = message;
     this.callback = callback;
     this.visible = true;

@@ -2,7 +2,7 @@
   <v-dialog persistent v-model="visible" max-width="500">
     <v-card>
       <v-card-title class="headline primary white--text" primary-title>
-        {{ title }}
+        {{ configs.title }}
       </v-card-title>
       <v-card-text>
         <slot name="body">
@@ -30,11 +30,8 @@
 </template>
 
 <script lang="ts">
+import { AlertCallback, DialogConfigs } from "@/models/ComponentUI";
 import { Vue, Component, Emit } from "vue-property-decorator";
-
-export interface AlertCallback {
-  (): void;
-}
 
 @Component
 export default class AlertDialog extends Vue {
@@ -45,14 +42,18 @@ export default class AlertDialog extends Vue {
     this.callback?.();
   }
 
-  private title = "알림";
+  private configs: DialogConfigs = { title: "알림" };
   private message = "메시지";
 
   private visible = false;
   private callback!: AlertCallback | undefined;
 
-  public show(title: string, message: string, callback?: AlertCallback) {
-    this.title = title;
+  public show(
+    message: string,
+    configs?: DialogConfigs,
+    callback?: AlertCallback
+  ) {
+    this.configs = { ...this.configs, ...configs };
     this.message = message;
     this.callback = callback;
     this.visible = true;

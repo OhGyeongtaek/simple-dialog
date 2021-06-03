@@ -3,3 +3,15 @@ export type SnackbarConfigs = {
   timeout?: number;
   color?: string;
 };
+
+export type DialogConfigs = {
+  title?: string;
+};
+
+export type ConfirmCallback = {
+  (result: boolean): void;
+};
+
+export type AlertCallback = {
+  (): void;
+};

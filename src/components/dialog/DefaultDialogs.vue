@@ -8,10 +8,15 @@
 </template>
 
 <script lang="ts">
-import { SnackbarConfigs } from "@/models/ComponentUI";
+import {
+  AlertCallback,
+  ConfirmCallback,
+  DialogConfigs,
+  SnackbarConfigs,
+} from "@/models/ComponentUI";
 import { Vue, Component } from "vue-property-decorator";
-import AlertDialog, { AlertCallback } from "./AlertDialog.vue";
-import ConfirmDialog, { ConfirmCallback } from "./ConfirmDialog.vue";
+import AlertDialog from "./AlertDialog.vue";
+import ConfirmDialog from "./ConfirmDialog.vue";
 import ProgressDialog from "./ProgressDialog.vue";
 import Snackbar from "./Snackbar.vue";
 
@@ -26,19 +31,23 @@ import Snackbar from "./Snackbar.vue";
 export default class DefaultDialogs extends Vue {
   protected progressVisible = false;
 
-  public showAlert(title: string, message: string, callback?: AlertCallback) {
+  public showAlert(
+    message: string,
+    configs?: DialogConfigs,
+    callback?: AlertCallback
+  ) {
     const alert = this.$refs.alert as AlertDialog;
 
-    alert.show(title, message, callback);
+    alert.show(message, configs, callback);
   }
 
   public showConfirm(
-    title: string,
     message: string,
-    callback: ConfirmCallback
+    configs?: DialogConfigs,
+    callback?: ConfirmCallback
   ) {
     const confirm = this.$refs.confirm as ConfirmDialog;
-    confirm.show(title, message, callback);
+    confirm.show(message, configs, callback);
   }
 
   public showSnack(message: string, config?: SnackbarConfigs) {

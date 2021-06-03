@@ -1,13 +1,10 @@
+import {
+  AlertCallback,
+  DialogConfigs,
+  ConfirmCallback,
+} from "./../models/ComponentUI";
 import { SnackbarConfigs } from "@/models/ComponentUI";
 import _Vue from "vue";
-
-interface ConfirmCallback {
-  (result: boolean): void;
-}
-
-interface AlertCallback {
-  (): void;
-}
 
 export class SimpleDialog {
   public static showSnack(msg: string, config?: SnackbarConfigs) {
@@ -17,19 +14,19 @@ export class SimpleDialog {
   }
 
   public static alert(
-    title?: string,
-    message?: string,
+    message: string,
+    configs?: DialogConfigs,
     callback?: AlertCallback
   ) {
-    _Vue.prototype.$dialog.showAlert(title, message, callback);
+    _Vue.prototype.$dialog.showAlert(message, configs, callback);
   }
 
   public static confirm(
-    title?: string,
-    message?: string,
+    message: string,
+    configs?: DialogConfigs,
     callback?: ConfirmCallback
   ) {
-    _Vue.prototype.$dialog.showConfirm(title, message, callback);
+    _Vue.prototype.$dialog.showConfirm(message, configs, callback);
   }
 
   public static showProgress() {

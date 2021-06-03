@@ -1,4 +1,5 @@
 # Simple Dialog
+
 <center>
 
 [![Typescript](https://img.shields.io/badge/Typescript-blue.svg)](https://www.typescriptlang.org/)
@@ -12,26 +13,38 @@ Vue에서 alert, confirm, progress와 같이 많이 이곳 저곳에서 많이 �
 > ## Alert 사용 예시
 
 ```javascript
-this.$alert("title", "message")
+// 타이틀을 기본값으로 쓸경우.
+this.$alert("메시지입니다.");
+
+// 타이틀을 변경하고 싶은 경우
+this.$alert("메시지입니다.", { title: "변경하고싶은 타이틀" });
 ```
 
 ![alert](https://user-images.githubusercontent.com/20200820/118649392-6bad9600-b81e-11eb-81c4-96b319adc489.gif)
-    
 
 > ## Confirm 사용 예시
 
 ```javascript
-this.$confirm("title", "message", (result: boolean) => {
-    if (result === true) {
-        console.log("Click confirm!!");
-    } else {
-        console.log("Click cancel!!");
-    }
-})
+// 타이틀을 기본값으로 쓸경우.
+this.$confirm("message", {}, (result: boolean) => {
+  if (result === true) {
+    console.log("Click confirm!!");
+  } else {
+    console.log("Click cancel!!");
+  }
+});
+
+// 타이틀을 변경하고 싶은 경우
+this.$confirm("message", { title: "변경" }, (result: boolean) => {
+  if (result === true) {
+    console.log("Click confirm!!");
+  } else {
+    console.log("Click cancel!!");
+  }
+});
 ```
 
 ![confirm](https://user-images.githubusercontent.com/20200820/118649463-7cf6a280-b81e-11eb-8318-a5817924c823.gif)
-
 
 > ## Progress 사용 예시
 
@@ -39,8 +52,8 @@ this.$confirm("title", "message", (result: boolean) => {
 this.$showProgress();
 
 setTimeout(() => {
-    this.$hideProgress();
-}, 3000)
+  this.$hideProgress();
+}, 3000);
 ```
 
 ![progress](https://user-images.githubusercontent.com/20200820/118649440-78ca8500-b81e-11eb-9e76-f88e17186809.gif)
