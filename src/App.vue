@@ -1,7 +1,10 @@
 <template>
-  <div id="app">
+  <v-app>
     <default-dialogs ref="defaultDialogs"></default-dialogs>
-  </div>
+    <v-btn @click="onClickAlert">Alert</v-btn>
+    <v-btn @click="onClickConfirm">Confirm</v-btn>
+    <v-btn @click="onClickSnackbar">Snackbar</v-btn>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -18,9 +21,18 @@ export default class App extends Vue {
     if (!Object.prototype.hasOwnProperty.call(Vue.prototype, "$dialog")) {
       Vue.prototype.$dialog = this.$refs.defaultDialogs;
     }
+  }
 
-    // this.$alert("테스트", { title: "타이틀을 변경해보아요." });
-    this.$confirm("테스트", {});
+  public onClickAlert() {
+    this.$alert("알러트를 실행했어요.");
+  }
+
+  public onClickConfirm() {
+    this.$confirm("confirm 실행했어요.");
+  }
+
+  public onClickSnackbar() {
+    this.$showSnack("snackbar 실행");
   }
 }
 

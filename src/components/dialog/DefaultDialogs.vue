@@ -1,10 +1,10 @@
 <template>
-  <v-app>
+  <div>
     <alert-dialog ref="alert"></alert-dialog>
     <confirm-dialog ref="confirm"></confirm-dialog>
     <progress-dialog v-if="progressVisible"></progress-dialog>
     <snackbar ref="snack"></snackbar>
-  </v-app>
+  </div>
 </template>
 
 <script lang="ts">

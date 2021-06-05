@@ -1,13 +1,16 @@
 <template>
   <v-dialog persistent v-model="visible" max-width="500">
     <v-card>
-      <v-card-title class="headline primary white--text" primary-title>
+      <v-card-title
+        class="headline primary white--text alert-title"
+        primary-title
+      >
         {{ configs.title }}
       </v-card-title>
       <v-card-text>
         <slot name="body">
           <div class="text-center title my-5">
-            <pre class="text-center title">{{ message }}</pre>
+            <pre class="text-center title alert-message">{{ message }}</pre>
           </div>
         </slot>
       </v-card-text>

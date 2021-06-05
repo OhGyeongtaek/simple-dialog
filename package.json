@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "@vue/test-utils": "^1.2.0",
     "core-js": "^3.6.5",
     "roboto-fontface": "*",
+    "ts-jest": "^27.0.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
@@ -19,6 +21,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -27,28 +30,31 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^27.0.4",
+    "prettier": "^2.2.1",
     "sass": "^1.32.0",
     "sass-loader": "^10.0.0",
     "typescript": "~4.1.5",
     "vue-cli-plugin-vuetify": "~2.4.0",
     "vue-template-compiler": "^2.6.11",
-    "prettier": "^2.2.1",
+    "vue-template-loader-jest": "^0.1.0",
     "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "jest": true
     },
     "extends": [
       "plugin:vue/essential",
@@ -68,7 +74,30 @@
         "off"
       ],
       "block-spacing": "warn",
-      "prettier/prettier": ["error", { "endOfLine": "auto" }]   
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.html$": "vue-template-loader-jest"
+    },
+    "testRegex": "\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true
+      }
     }
   },
   "browserslist": [
