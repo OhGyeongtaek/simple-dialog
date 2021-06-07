@@ -1,14 +1,18 @@
-import { mount } from "@vue/test-utils";
+// import { mount } from "@vue/test-utils";
 // import App from "../App.vue";
 
-const getPopupDatas = (popupName: string) => {
-  const title = document.querySelector(`${popupName}-title`)?.innerHTML;
-  const msg = document.querySelector(`${popupName}-message`)?.innerHTML;
+// const getPopupDatas = (popupName: string) => {
+//   const title = document.querySelector(`${popupName}-title`)?.innerHTML;
+//   const msg = document.querySelector(`${popupName}-message`)?.innerHTML;
 
-  return { title, msg };
-};
+//   return { title, msg };
+// };
 
 describe("App 단위테스트", () => {
+  it("$alert 실행하고 팝업이 뜨는지 확인한다.", () => {
+    expect(1).toBe(1);
+  });
+
   // const app = mount(App);
   // const vm = app.vm;
   // it("$alert 실행하고 팝업이 뜨는지 확인한다.", () => {

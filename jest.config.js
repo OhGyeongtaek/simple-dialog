@@ -1,6 +1,6 @@
 module.exports = {
   preset: "@vue/cli-plugin-unit-jest",
-  moduleFileExtensions: ["ts", "vue", "js", "json"],
+  moduleFileExtensions: ["ts", "js", "json"],
   transform: {
     "^.+\\.(ts)?$": "ts-jest",
   },
