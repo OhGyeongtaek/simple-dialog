@@ -15,6 +15,7 @@ import {
   SnackbarConfigs,
 } from "@/models/ComponentUI";
 import { Vue, Component } from "vue-property-decorator";
+import Vuetify from "vuetify";
 import AlertDialog from "./AlertDialog.vue";
 import ConfirmDialog from "./ConfirmDialog.vue";
 import ProgressDialog from "./ProgressDialog.vue";

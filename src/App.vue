@@ -1,9 +1,6 @@
 <template>
   <v-app>
     <default-dialogs ref="defaultDialogs"></default-dialogs>
-    <v-btn @click="onClickAlert">Alert</v-btn>
-    <v-btn @click="onClickConfirm">Confirm</v-btn>
-    <v-btn @click="onClickSnackbar">Snackbar</v-btn>
   </v-app>
 </template>
 
