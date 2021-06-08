@@ -19,18 +19,6 @@ export default class App extends Vue {
       Vue.prototype.$dialog = this.$refs.defaultDialogs;
     }
   }
-
-  public onClickAlert() {
-    this.$alert("알러트를 실행했어요.");
-  }
-
-  public onClickConfirm() {
-    this.$confirm("confirm 실행했어요.");
-  }
-
-  public onClickSnackbar() {
-    this.$showSnack("snackbar 실행");
-  }
 }
 
 declare module "vue/types/vue" {
