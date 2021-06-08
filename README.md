@@ -20,7 +20,7 @@ this.$alert("메시지입니다.");
 this.$alert("메시지입니다.", { title: "변경하고싶은 타이틀" });
 ```
 
-![alert](https://user-images.githubusercontent.com/20200820/118649392-6bad9600-b81e-11eb-81c4-96b319adc489.gif)
+![alert](https://user-images.githubusercontent.com/20200820/121209736-119c6f80-c8b6-11eb-99a7-6b3f9fff9e8f.gif)
 
 > ## Confirm 사용 예시
 
