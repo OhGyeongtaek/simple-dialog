@@ -5,6 +5,7 @@
 [![Typescript](https://img.shields.io/badge/Typescript-blue.svg)](https://www.typescriptlang.org/)
 [![Vue v2.6.11](https://img.shields.io/badge/Vue-v2.6.11-blue.svg)](https://kr.vuejs.org/v2/guide/index.html)
 [![Vuetify v2.4.0](https://img.shields.io/badge/Vuetify-v2.4.0-blue.svg)](https://vuetifyjs.com/en/)
+[![Jest v24.0.19](https://img.shields.io/badge/Jest-v24.0.19-blue.svg)](https://jestjs.io/)
 
 </center>
 
