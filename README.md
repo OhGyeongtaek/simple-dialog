@@ -27,25 +27,17 @@ this.$alert("메시지입니다.", { title: "변경하고싶은 타이틀" });
 
 ```javascript
 // 타이틀을 기본값으로 쓸경우.
-this.$confirm("message", {}, (result: boolean) => {
-  if (result === true) {
-    console.log("Click confirm!!");
-  } else {
-    console.log("Click cancel!!");
-  }
+this.$confirm("message", (result: boolean) => {
+  console.log(result);
 });
 
 // 타이틀을 변경하고 싶은 경우
 this.$confirm("message", { title: "변경" }, (result: boolean) => {
-  if (result === true) {
-    console.log("Click confirm!!");
-  } else {
-    console.log("Click cancel!!");
-  }
+  console.log(result);
 });
 ```
 
-![confirm](https://user-images.githubusercontent.com/20200820/118649463-7cf6a280-b81e-11eb-8318-a5817924c823.gif)
+![confirm](https://user-images.githubusercontent.com/20200820/121361648-75836e80-c970-11eb-87a7-860415a80d0d.gif)
 
 > ## Progress 사용 예시
 
