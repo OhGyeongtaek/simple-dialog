@@ -23,10 +23,14 @@ export class SimpleDialog {
 
   public static confirm(
     message: string,
-    configs?: DialogConfigs,
-    callback?: ConfirmCallback
+    arg1?: DialogConfigs | ConfirmCallback,
+    arg2?: ConfirmCallback
   ) {
-    _Vue.prototype.$dialog.showConfirm(message, configs, callback);
+    if (typeof arg1 === "function") {
+      _Vue.prototype.$dialog.showConfirm(message, {}, arg1);
+    } else {
+      _Vue.prototype.$dialog.showConfirm(message, arg1, arg2);
+    }
   }
 
   public static showProgress() {
